@@ -11,7 +11,7 @@
 
         function deleteItem(item, fn) {
             $modal.open({
-                templateUrl: 'shared/model-delete/modal-delete.html',
+                templateUrl: 'shared/modal-delete/modal-delete.html',
                 controller: ['$modalInstance', 'item', 'fn', DeleteModalCtrl],
                 controllerAs: 'vm',
                 resolve: {

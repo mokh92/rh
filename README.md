@@ -1,4 +1,4 @@
-#rh
+# Rh
 ## Installer les dépendances de l'api
 
 Ouvrir la ligne des commandes depuis le répertoire server et lancer la 

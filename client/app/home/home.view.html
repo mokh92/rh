@@ -1,9 +1,10 @@
 ﻿<div ng-controller="HomeController as root" class="row">
+    {{root.companyId}}
     <div class="col-md-6">
-        <company companyId="root.companyId" on-view-change="root.companyId = $event.companyId"></company>
+        <company companyId="root.companyId" on-company-change="root.companyId = $event.companyId"></company>
     </div>
     <div class="col-md-6">
-        <department view="root.companyId"></department>
+        <department company="root.companyId"></department>
     </div>
 </div>
 <!--<ul>

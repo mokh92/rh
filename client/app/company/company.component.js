@@ -6,7 +6,8 @@
             templateUrl: 'company/company.view.html',
             bindings: {
                 companyId: '<',
-                onViewChange: '&'
+                onCompanyChange: '&'
+
             },
             controller: ['CompanyService', '$modal', 'ModalDeleteService', 'DataService', 'PostCompanyService',
                 function companyController(CompanyService, $modal, ModalDeleteService, DataService, PostCompanyService) {
@@ -48,6 +49,8 @@
 
                 vm.select= function(item){
                     vm.activeCompany = item;
+                    vm.companyId = item;
+                    vm.onCompanyChange({$event: {companyId: item}});
                 };
                 // pass the data to the delete modal service
                 function openDeleteModal() {

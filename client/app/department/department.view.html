@@ -5,14 +5,16 @@
         <p><input class="form-control" type="text"></p>
     </div>
 
-    <!-- companies -->
+    <!-- departments -->
+<div ng-if="$ctrl.departments">
     <div ng-repeat="department in $ctrl.departments" class="list-group">
         <a ng-click="$ctrl.select(department._id)" class="list-group-item"
            ng-class="{active: $ctrl.activeDepartment === department._id}">
             {{department.name}}
         </a>
     </div>
-    {{test}}
+</div>
+    {{$ctrl.company}}
     <button type="button" class="btn btn-sm btn-primary" ng-click="$ctrl.openDeleteModal()">Delete</button>
     <button type="button" class="btn btn-sm btn-primary" ng-click="$ctrl.openPostModal()">Add</button>
 </div>

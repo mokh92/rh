@@ -64,7 +64,7 @@
                 //delete
             setD: function set(d) {
                 departmentIsDeleted = d;
-                departmentIsDeleted.onNext(d);
+                departmentSubjectIsDeleted.onNext(d);
             },
             getD: function get() {
                 return departmentIsDeleted;

@@ -3,8 +3,8 @@
     angular
         .module('app')
         .factory('PostCompanyService', PostCompanyService);
-    PostCompanyService.$inject = ['$modal', 'FlashService', 'DataService', 'CompanyService'];
-    function PostCompanyService($modal, FlashService, DataService, CompanyService) {
+    PostCompanyService.$inject = ['$modal', 'DataService', 'CompanyService', 'toaster'];
+    function PostCompanyService($modal, DataService, CompanyService, toaster) {
         var service = {};
         service.postItem = postItem;
         return service;
@@ -28,6 +28,7 @@
                 CompanyService.AddCompany(vm.company, function (response) {
                     if(response){
                         DataService.setCa(true);
+                        toaster.pop('sucess', "", "Company added");
                     }
                 });
                 $modalInstance.close();

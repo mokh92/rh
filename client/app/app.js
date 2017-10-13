@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies', 'ngStorage', 'rx', 'ui.bootstrap'])
+        .module('app', ['ngRoute', 'ngCookies', 'ngStorage', 'rx', 'ui.bootstrap', 'toaster'])
         .config(config)
         .run(run);
 

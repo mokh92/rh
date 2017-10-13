@@ -19,7 +19,7 @@
                         CompanyService.GetCompanies(function (response) {
                             console.log(response[0]._id);
                             // Get departments from Db
-                            DepartmentService.GetDepartments(response[0]._id , function (response) {
+                            DepartmentService.GetDepartmentsByCompany(response[0]._id , function (response) {
                                 vm.departments = response;
                             });
                         });
@@ -27,7 +27,7 @@
                     };
                     vm.$onChanges = function (changes) {
                         vm.company = changes.company.currentValue;
-                        DepartmentService.GetDepartments(vm.company , function (response) {
+                        DepartmentService.GetDepartmentsByCompany(vm.company , function (response) {
                             vm.departments = response;
                         });
                     };
@@ -38,7 +38,8 @@
                 vm.subscription = DataService.subscribeD(function onNext(data) {
                     vm.itemDeleted = data;
                     if(data){
-                        DepartmentService.GetDepartments(function (response) {
+                        console.log(data);
+                        DepartmentService.GetDepartmentsByCompany(vm.company, function (response) {
                             vm.departments = response;
                         });
                         DataService.setD(false);
@@ -50,8 +51,8 @@
                     vm.subscription = DataService.subscribeDa(function onNext(data) {
                         vm.itemAdded = data;
                         if(data){
-                            DepartmentService.GetDepartments(function (response) {
-                                vm.department = response;
+                            DepartmentService.GetDepartmentsByCompany(vm.company, function (response) {
+                                vm.departments = response;
                             });
                             DataService.setDa(false);
                         }

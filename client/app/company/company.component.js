@@ -64,9 +64,6 @@
                     function openPostModal() {
                         PostCompanyService.postItem();
                     }
-                    function postCompany(id, callback) {
-                        var k = CompanyService.DeleteCompany(id, callback);
-                    }
 
                     this.$onDestroy = function() {
                         vm.subscription.dispose();

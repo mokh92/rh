@@ -7,14 +7,21 @@
     DepartmentService.$inject = ['$http'];
     function DepartmentService($http) {
         var service = {};
-
         service.GetDepartments = GetDepartments;
+        service.GetDepartmentsByCompany = GetDepartmentsByCompany;
         service.DeleteDepartment = DeleteDepartment;
         service.AddDepartment = AddDepartment;
 
         return service;
 
-        function GetDepartments(companyId, callback) {
+        function GetDepartments( callback) {
+            $http.get('http://localhost:3000/api/departments/')
+                .then(function (response) {
+                    return callback(response.data)
+                });
+        }
+
+        function GetDepartmentsByCompany(companyId, callback) {
             $http.get('http://localhost:3000/api/departments/'+companyId)
                 .then(function (response) {
                     return callback(response.data)

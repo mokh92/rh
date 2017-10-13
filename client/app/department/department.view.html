@@ -1,20 +1,29 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Departments</div>
+    <div class="panel-heading"><h4>Departments</h4></div>
     <div class="panel-body">
-        <p><input class="form-control" type="text"></p>
+        <p><input placeholder="Search" class="form-control" type="text" ng-model="$ctrl.query"></p>
+        <!-- departments -->
+        <div ng-if="$ctrl.departments">
+            <div ng-repeat="department in $ctrl.departments | filter: $ctrl.query" class="list-group">
+                <a ng-click="$ctrl.select(department._id)" class="list-group-item"
+                   ng-class="{active: $ctrl.activeDepartment === department._id}">
+                    {{department.name}}
+                </a>
+            </div>
+        </div>
     </div>
 
-    <!-- departments -->
-<div ng-if="$ctrl.departments">
-    <div ng-repeat="department in $ctrl.departments" class="list-group">
-        <a ng-click="$ctrl.select(department._id)" class="list-group-item"
-           ng-class="{active: $ctrl.activeDepartment === department._id}">
-            {{department.name}}
-        </a>
-    </div>
-</div>
+
     {{$ctrl.company}}
-    <button type="button" class="btn btn-sm btn-primary" ng-click="$ctrl.openDeleteModal()">Delete</button>
-    <button type="button" class="btn btn-sm btn-primary" ng-click="$ctrl.openPostModal()">Add</button>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success" ng-click="$ctrl.openPostModal()">Add</button>
+            </div>
+            <div class="col-md-3" ng-if="$ctrl.activeDepartment">
+                <button type="button" class="btn btn-danger" ng-click="$ctrl.openDeleteModal()">Delete</button>
+            </div>
+        </div>
+    </div>
 </div>

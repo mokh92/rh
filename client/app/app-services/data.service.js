@@ -70,7 +70,7 @@
                 return departmentIsDeleted;
             },
             subscribeD: function (o) {
-                return subjectIsDeleted.subscribe(o);
+                return departmentSubjectIsDeleted.subscribe(o);
             },
                 //add
             setDa: function set(d) {

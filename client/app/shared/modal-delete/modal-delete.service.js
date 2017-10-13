@@ -3,8 +3,8 @@
     angular
         .module('app')
         .factory('ModalDeleteService', ModalDeleteService);
-    ModalDeleteService.$inject = ['$modal', 'FlashService', 'DataService'];
-    function ModalDeleteService($modal, FlashService, DataService) {
+    ModalDeleteService.$inject = ['$modal', 'DataService', 'toaster'];
+    function ModalDeleteService($modal, DataService, toaster) {
         var service = {};
         service.deleteItem = deleteItem;
         return service;
@@ -35,7 +35,7 @@
                     if(response == 'success'){
                         DataService.setC(true);
                         DataService.setD(true);
-                        FlashService.Success('Item deleted', true);
+                        toaster.pop('sucess', "", "Item deleted");
                     }
                 });
                 $modalInstance.close();

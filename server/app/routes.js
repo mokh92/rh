@@ -46,6 +46,7 @@ module.exports = function(app){
     // Department Routes
     apiRoutes.use('/departments', departmentRoutes);
 
+    departmentRoutes.get('/', DepartmentController.getDepartments);
     departmentRoutes.get('/:companyId', DepartmentController.getDepartmentsByCompany);
     departmentRoutes.post('/', DepartmentController.addDepartmentByCompany);
     departmentRoutes.delete('/:id', DepartmentController.deleteDepartment);

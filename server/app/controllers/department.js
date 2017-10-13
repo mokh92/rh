@@ -2,6 +2,16 @@ var mongoose = require('mongoose');
 var Department = require('../models/department');
 var Employee = require('../models/employee');
 
+// Get Depatments
+exports.getDepartments = function(req, res, next) {
+    Department.find({}, function(err, departments) {
+        if(err){
+            return res.send(err);
+        }
+        return res.json(departments);
+    });
+};
+
 // Get Depatments By Company Id
 exports.getDepartmentsByCompany = function(req, res, next) {
     Department.find({company: req.params.companyId}, function(err, departments) {
@@ -10,7 +20,7 @@ exports.getDepartmentsByCompany = function(req, res, next) {
         }
         return res.json(departments);
     });
-}
+};
 
 // Add a Department to a company
 exports.addDepartmentByCompany = function(req, res, next) {

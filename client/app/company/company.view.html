@@ -5,8 +5,8 @@
         <p><input  placeholder="Search" class="form-control" type="text" ng-model="$ctrl.query"></p>
         <!-- companies -->
         <div ng-repeat="company in $ctrl.companies | filter:$ctrl.query" class="list-group">
-            <a ng-click="$ctrl.select(company._id)" class="list-group-item"
-               ng-class="{active: $ctrl.activeCompany === company._id}">
+            <a ng-click="$ctrl.select({_id: company._id, name: company.name})" class="list-group-item"
+               ng-class="{active: $ctrl.activeCompany._id ===  company._id}">
                 {{company.name}}
             </a>
         </div>

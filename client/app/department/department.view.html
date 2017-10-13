@@ -2,20 +2,21 @@
     <!-- Default panel contents -->
     <div class="panel-heading"><h4>Departments</h4></div>
     <div class="panel-body">
+        <div ng-if="$ctrl.company">
+            <h5>Company name: {{$ctrl.company.name}}</h5>
+        </div>
         <p><input placeholder="Search" class="form-control" type="text" ng-model="$ctrl.query"></p>
         <!-- departments -->
         <div ng-if="$ctrl.departments">
             <div ng-repeat="department in $ctrl.departments | filter: $ctrl.query" class="list-group">
-                <a ng-click="$ctrl.select(department._id)" class="list-group-item"
-                   ng-class="{active: $ctrl.activeDepartment === department._id}">
+                <a ng-click="$ctrl.select({_id:department._id, name:department.name})" class="list-group-item"
+                   ng-class="{active: $ctrl.activeDepartment._id === department._id}">
                     {{department.name}}
                 </a>
             </div>
         </div>
     </div>
 
-
-    {{$ctrl.company}}
     <div class="panel-footer">
         <div class="row">
             <div class="col-md-3">

@@ -1,40 +1,39 @@
-<div class="modal-header">
-    <h3 class="modal-title"></h3>
-</div>
-<div class="modal-body">
-    <form name="form" ng-submit="vm.AddCompany()" role="form">
-        <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" class="form-control" ng-model="vm.company.name" required />
-            <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Name is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.activity.$dirty && form.activity.$error.required }">
-            <label for="activity">Activity</label>
-            <input type="text" name="activity" id="activity" class="form-control" ng-model="vm.company.activity" required />
-            <span ng-show="form.activity.$dirty && form.activity.$error.required" class="help-block">Activity is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.creationDate.$dirty && form.creationDate.$error.required }">
-            <label for="creationDate">Creation Date</label>
-            <input type="date" name="creationDate" id="creationDate" class="form-control" ng-model="vm.company.creationDate" required />
-            <span ng-show="form.creationDate.$dirty && form.creationDate.$error.required" class="help-block">Creation Date is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.Address.$dirty && form.Address.$error.required }">
-            <label for="Address">Address</label>
-            <input type="text" name="Address" id="Address" class="form-control" ng-model="vm.company.Address" required />
-            <span ng-show="form.Address.$dirty && form.Address.$error.required" class="help-block">Address is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
-            <label for="phone">Phone</label>
-            <input type="text" name="phone" id="phone" class="form-control" ng-model="vm.company.phone" required />
-            <span ng-show="form.phone.$dirty && form.phone.$error.required" class="help-block">Phone is required</span>
-        </div>
-        <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Add</button>
-            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-        </div>
-    </form>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-danger" ng-click="vm.deleteItem()">Delete</button>
-    <button class="btn" ng-click="$close()">Cancel</button>
-</div>
+<form name="form" ng-submit="vm.AddCompany()" role="form">
+    <div class="modal-header">
+        <h3 class="modal-title">Company</h3>
+    </div>
+    <div class="modal-body">
+
+            <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" ng-model="vm.company.name" required />
+                <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Name is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.activity.$dirty && form.activity.$error.required }">
+                <label for="activity">Activity</label>
+                <input type="text" name="activity" id="activity" class="form-control" ng-model="vm.company.activity" required />
+                <span ng-show="form.activity.$dirty && form.activity.$error.required" class="help-block">Activity is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.creationDate.$dirty && form.creationDate.$error.required }">
+                <label for="creationDate">Creation Date</label>
+                <input type="date" name="creationDate" id="creationDate" class="form-control" ng-model="vm.company.creationDate" required />
+                <span ng-show="form.creationDate.$dirty && form.creationDate.$error.required" class="help-block">Creation Date is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.Address.$dirty && form.Address.$error.required }">
+                <label for="Address">Address</label>
+                <input type="text" name="Address" id="Address" class="form-control" ng-model="vm.company.Address" required />
+                <span ng-show="form.Address.$dirty && form.Address.$error.required" class="help-block">Address is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" class="form-control" ng-model="vm.company.phone" required />
+                <span ng-show="form.phone.$dirty && form.phone.$error.required" class="help-block">Phone is required</span>
+            </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Add</button>
+        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <button class="btn" ng-click="$close()">Cancel</button>
+    </div>
+</form>

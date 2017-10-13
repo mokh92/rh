@@ -20,7 +20,7 @@
             vm.dataLoading = true;
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 if (response.success) {
-                        $location.path('/');
+                        $location.path('/people-directory');
                 } else {
                     FlashService.Error(response.message.error);
                     vm.dataLoading = false;

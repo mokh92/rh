@@ -27,9 +27,12 @@
                     };
                     vm.$onChanges = function (changes) {
                         vm.company = changes.company.currentValue;
-                        DepartmentService.GetDepartmentsByCompany(vm.company , function (response) {
-                            vm.departments = response;
-                        });
+                        if(vm.company){
+                            DepartmentService.GetDepartmentsByCompany(vm.company._id , function (response) {
+                                vm.departments = response;
+                                console.log(vm.departments)
+                            });
+                        }
                     };
 
 
@@ -39,7 +42,7 @@
                     vm.itemDeleted = data;
                     if(data){
                         console.log(data);
-                        DepartmentService.GetDepartmentsByCompany(vm.company, function (response) {
+                        DepartmentService.GetDepartmentsByCompany(vm.company._id, function (response) {
                             vm.departments = response;
                         });
                         DataService.setD(false);
@@ -51,7 +54,7 @@
                     vm.subscription = DataService.subscribeDa(function onNext(data) {
                         vm.itemAdded = data;
                         if(data){
-                            DepartmentService.GetDepartmentsByCompany(vm.company, function (response) {
+                            DepartmentService.GetDepartmentsByCompany(vm.company._id, function (response) {
                                 vm.departments = response;
                             });
                             DataService.setDa(false);

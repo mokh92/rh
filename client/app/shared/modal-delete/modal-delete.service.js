@@ -31,11 +31,11 @@
             vm.deleteItem = deleteItem;
 
             function deleteItem() {
-                vm.fn(item, function (response) {
+                vm.fn(item._id, function (response) {
                     if(response == 'success'){
                         DataService.setC(true);
                         DataService.setD(true);
-                        toaster.pop('sucess', "", "Item deleted");
+                        toaster.pop('sucess', "", item.name+" deleted");
                     }
                 });
                 $modalInstance.close();

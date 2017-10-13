@@ -3,8 +3,9 @@
     angular
         .module('app')
         .factory('PostDepartmentService', PostDepartmentService);
-    PostDepartmentService.$inject = ['$modal', 'FlashService', 'DataService', 'DepartmentService', 'toaster'];
-    function PostDepartmentService($modal, FlashService, DataService, DepartmentService, toaster) {
+    PostDepartmentService.$inject = ['$modal', 'DataService', 'DepartmentService', 'toaster', 'CompanyService'];
+    function PostDepartmentService($modal, DataService, DepartmentService, toaster, CompanyService) {
+
         var service = {};
         service.postItem = postItem;
         return service;
@@ -22,7 +23,20 @@
 
         function PostModalCtrl($modalInstance) {
             var vm = this;
+            (function initController() {
+                // reset login status
+                ListCompanies();
+            })();
             vm.AddDepartment = AddDepartment;
+            vm.ListCompanies = ListCompanies;
+
+            function ListCompanies() {
+                CompanyService.GetCompanies(function (response) {
+                   vm.companies = response.map(function (company) {
+                       return {_id: company._id, name: company.name};
+                   });
+                });
+            }
 
             function AddDepartment() {
                 DepartmentService.AddDepartment(vm.department, function (response) {

@@ -1,0 +1,9 @@
+﻿<div ng-controller="PeopleDirectoryController as root" class="row">
+    <div class="col-md-6">
+        <company on-company-change="root.company = $event.company"></company>
+    </div>
+    <div class="col-md-6">
+        <department company="root.company"></department>
+    </div>
+</div>
+

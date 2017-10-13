@@ -9,9 +9,24 @@
     config.$inject = ['$routeProvider', '$locationProvider'];
     function config($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', {
+            .when('/people-directory', {
+                controller: 'PeopleDirectoryController',
+                templateUrl: 'people-directory/people-directory.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/home', {
                 controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/jobs-manager', {
+                controller: 'JobsManagerController',
+                templateUrl: 'jobs-manager/jobs-manager.view.html',
+                controllerAs: 'vm'
+            })
+            .when('/statistics', {
+                controller: 'StatisticsController',
+                templateUrl: 'statistics/statistics.view.html',
                 controllerAs: 'vm'
             })
 
@@ -32,11 +47,6 @@
 
     run.$inject = ['$rootScope', '$location', '$cookies', '$http', '$localStorage', 'DataService'];
     function run($rootScope, $location, $cookies, $http, $localStorage, DataService) {
-        // keep user logged in after page refresh
-        /*$rootScope.globals = $cookies.getObject('globals') || {};
-        if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
-        }*/
         // keep user logged in after page refresh
         if ($localStorage.currentUser) {
             $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;

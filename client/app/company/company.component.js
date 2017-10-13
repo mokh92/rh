@@ -5,9 +5,7 @@
         .component('company', {
             templateUrl: 'company/company.view.html',
             bindings: {
-                companyId: '<',
                 onCompanyChange: '&'
-
             },
             controller: ['CompanyService', '$modal', 'ModalDeleteService', 'DataService', 'PostCompanyService',
                 function companyController(CompanyService, $modal, ModalDeleteService, DataService, PostCompanyService) {
@@ -17,11 +15,13 @@
                 vm.deleteCompany = deleteCompany;
 
                 // get companies from DB
-                CompanyService.GetCompanies(function (response) {
-                    vm.companies = response;
-                    vm.companyId = response[0]._id;
-                    console.log(vm.companies);
-                });
+                vm.$onInit = function () {
+                    CompanyService.GetCompanies(function (response) {
+                        vm.companies = response;
+                        console.log(vm.companies);
+                        vm.company = {_id: response[0]._id, name: response[0].name};
+                    });
+                };
 
                 // refresh after after delete
                     vm.itemDeleted = DataService.getC();
@@ -49,8 +49,8 @@
 
                 vm.select= function(item){
                     vm.activeCompany = item;
-                    vm.companyId = item;
-                    vm.onCompanyChange({$event: {companyId: item}});
+                    vm.company = item;
+                    vm.onCompanyChange({$event: {company: item}});
                 };
                 // pass the data to the delete modal service
                 function openDeleteModal() {

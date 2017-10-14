@@ -16,5 +16,5 @@ commande `npm install`
 
 ## Lancer le client en mode développement
 
-Depuis le répertoire bo lancer la commande `grunt serve`
+Depuis le répertoire client lancer la commande `grunt serve`
 entrer le lien [http://localhost:9000](http://localhost:9000)

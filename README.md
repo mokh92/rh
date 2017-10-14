@@ -1,23 +1,20 @@
 # Rh
-## Installer les dépendances de l'api
+## Installer les dÃ©pendances de l'api
 
-Ouvrir la ligne des commandes depuis le répertoire server et lancer la 
+Ouvrir la ligne des commandes depuis le rÃ©pertoire server et lancer la 
 commande `npm install`
 
 ## Lancer l'api
 
-Depuis le répertoire api lancer la commande `npm start`
+Depuis le rÃ©pertoire api lancer la commande `npm start`
 
-## Installer les dépendances du partie client
+## Installer les dÃ©pendances du partie client
 
-Ouvrir la ligne des commandes depuis le répertoire client et lancer la 
+Ouvrir la ligne des commandes depuis le rÃ©pertoire client et lancer la 
 commande `npm install`
 
 
-## Lancer le client en mode développement
+## Lancer le client en mode dÃ©veloppement
 
-Depuis le répertoire bo lancer la commande `grunt serve`
-
-## Créer un build 
-
-`grunt build`
+Depuis le rÃ©pertoire bo lancer la commande `grunt serve`
+entrer le lien [a link](http://localhost:9000)
